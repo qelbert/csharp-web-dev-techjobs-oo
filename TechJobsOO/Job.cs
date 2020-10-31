@@ -29,6 +29,8 @@ namespace TechJobsOO
             EmployerLocation = employerLocation;
             JobType = jobType;
             JobCoreCompetency = jobCoreCompetency;
+            Id = nextId;
+            nextId++;
 
         }
 

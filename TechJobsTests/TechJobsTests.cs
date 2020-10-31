@@ -34,7 +34,7 @@ namespace TechJobsTests
             Job test1 = new Job("contactName1", new Employer("employerName1"), new Location("employerLocation1"), new PositionType("jobType1"), new CoreCompetency("coreCompentency1"));
             Job test2 = new Job("contactName1", new Employer("employerName1"), new Location("employerLocation1"), new PositionType("jobType1"), new CoreCompetency("coreCompentency1"));
 
-            Assert.IsTrue(Equals(test1,test2));
+            Assert.IsFalse(test1.Equals(test2));
         }
 
 
