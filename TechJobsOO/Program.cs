@@ -1,27 +1,31 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TechJobsOO
 {
     class Program
     {
-        static void Main(string[] args)
+        //static void Main(string[] args)
+        static void Main()
         {
-            /*
-            Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-            Job job2 = new Job("Web Developer", new Employer("LaunchCode"), new Location("St. Louis"), new PositionType("Front-end developer"), new CoreCompetency("JavaScript"));
-            Job job3 = new Job("Ice cream tester", new Employer(""), new Location("Home"), new PositionType("UX"), new CoreCompetency("Tasting ability"));
 
-            List<Job> jobs = new List<Job>();
+            Job job1 = new Job("product tester", new Employer("acme"), new Location("desert"), new PositionType("quality control"), new CoreCompetency("persistence"));
+            Job job2 = new Job("web developer", new Employer("launchcode"), new Location("st. louis"), new PositionType("front-end developer"), new CoreCompetency("javascript"));
+            Job job3 = new Job("ice cream tester", new Employer(""), new Location("home"), new PositionType("ux"), new CoreCompetency("tasting ability"));
 
-            jobs.Add(job1);
-            jobs.Add(job2);
-            jobs.Add(job3);
+            //List<Job> jobs = new List<Job>();
+
+            //jobs.Add(job1);
+            //jobs.Add(job2);
+            //jobs.Add(job3);
+
+            List<Job> jobs = new List<Job> { job1, job2, job3 };
 
             foreach (Job job in jobs)
             {
-                Console.WriteLine(job);
+                Console.WriteLine(job.ToString());
             }
-            */
+
         }
     }
 }

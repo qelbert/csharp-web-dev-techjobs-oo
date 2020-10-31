@@ -47,6 +47,14 @@ namespace TechJobsOO
 
         // TODO: Generate Equals() and GetHashCode() methods.
 
+        public override string ToString()
+        {
+            //if (String.IsNullOrEmpty(Name) && String.IsNullOrEmpty(EmployerName) && String.IsNullOrEmpty(EmployerLocation) && String.IsNullOrEmpty(JobType) && String.IsNullOrEmpty(JobCoreCompetency))
 
+            return System.Environment.NewLine + "ID: " + Id + System.Environment.NewLine + "Name: " + Name 
+                + System.Environment.NewLine + "Employer: " + EmployerName + System.Environment.NewLine
+                 + "Location: " + EmployerLocation + System.Environment.NewLine + "Position Type: " + JobType + System.Environment.NewLine 
+                 + "Core Competency: " + JobCoreCompetency;
+        }
     }
 }
