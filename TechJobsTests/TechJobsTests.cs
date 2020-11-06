@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 using TechJobsOO;
 
 
@@ -16,33 +17,49 @@ namespace TechJobsTests
             Assert.IsFalse(test1.Id == test2.Id);
         }
 
+        Job test1;
+        Job test2;
+
+        [TestInitialize]
+
+        public void CreateJobObject()
+        {
+            test1 = new Job("contactName1", new Employer(""), new Location("employerLocation1"), new PositionType("jobType1"), new CoreCompetency("coreCompentency1"));
+            test2 = new Job("contactName1", new Employer(""), new Location("employerLocation1"), new PositionType("jobType1"), new CoreCompetency("coreCompentency1"));
+        }
+
         [TestMethod]
         public void JobConstructorSetsAllFields()
         {
-            Job test1 = new Job("contactName1", new Employer("employerName1"), new Location("employerLocation1"), new PositionType ("jobType1"), new CoreCompetency("coreCompentency1"));
-
             Assert.AreEqual(test1.Name, "contactName1");
         }
 
         [TestMethod]
         public void JobTestsForEquality()
         {
-            Job test1 = new Job("contactName1", new Employer("employerName1"), new Location("employerLocation1"), new PositionType("jobType1"), new CoreCompetency("coreCompentency1"));
-            Job test2 = new Job("contactName1", new Employer("employerName1"), new Location("employerLocation1"), new PositionType("jobType1"), new CoreCompetency("coreCompentency1"));
-
             Assert.IsFalse(test1.Equals(test2));
         }
 
         [TestMethod]
-        public void JobTestsToStringMethod()
+        public void JobTestsForRequiredEmptyLines()
         {
-            Job test1 = new Job("contactName1", new Employer("employerName1"), new Location("employerLocation1"), new PositionType("jobType1"), new CoreCompetency("coreCompentency1"));
-
-            //Assert.AreEqual(System.Environment.NewLine + "contactName1" + System.Environment.NewLine, test1.ToString());
-
-            Assert.AreEqual(System.Environment.NewLine + "ID: " + test1.Id + System.Environment.NewLine + "Name: " + "contactName1" + System.Environment.NewLine + "Employer: " + "employerName1" + System.Environment.NewLine + "Location: " + "employerLocation1" + System.Environment.NewLine + "Position Type: " + "jobType1" + System.Environment.NewLine + "Core Competency: " + "coreCompentency1", test1.ToString());
+            Assert.IsTrue(test1.ToString().Contains("" + "ID"));
+            Assert.IsTrue(test1.ToString().Contains("coreCompentency1" + System.Environment.NewLine));
         }
 
+        [TestMethod]
+        public void JobTestsLabelFieldAndSingleLines()
+        {
+            Assert.IsTrue(test1.ToString().Contains("Location:"));
+            Assert.IsTrue(test1.ToString().Contains("employerLocation1"));
+            Assert.IsTrue(test1.ToString().Contains("Location: employerLocation1" + System.Environment.NewLine + "Position Type:"));
+        }
+
+        [TestMethod]
+        public void JobTestsEmptyFields()
+        {
+            Assert.IsTrue(test1.ToString().Contains("Data not available"));
+        }
 
     }
  }

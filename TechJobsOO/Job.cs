@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections.Generic;
 
 namespace TechJobsOO
 {
@@ -49,12 +49,40 @@ namespace TechJobsOO
 
         public override string ToString()
         {
-            //if (String.IsNullOrEmpty(Name) && String.IsNullOrEmpty(EmployerName) && String.IsNullOrEmpty(EmployerLocation) && String.IsNullOrEmpty(JobType) && String.IsNullOrEmpty(JobCoreCompetency))
+            string stringId = Id.ToString();
+            string combinedJobList = "";
 
-            return System.Environment.NewLine + "ID: " + Id + System.Environment.NewLine + "Name: " + Name 
-                + System.Environment.NewLine + "Employer: " + EmployerName + System.Environment.NewLine
-                 + "Location: " + EmployerLocation + System.Environment.NewLine + "Position Type: " + JobType + System.Environment.NewLine 
-                 + "Core Competency: " + JobCoreCompetency;
+            Dictionary<string, string> fields = new Dictionary<string, string>
+            {
+                {"ID", stringId},
+                {"Name", Name},
+                {"Employer", EmployerName.ToString()},
+                {"Location", EmployerLocation.ToString()},
+                {"Position Type", JobType.ToString()},
+                {"Core Competency", JobCoreCompetency.ToString()},
+            };
+
+            Console.WriteLine(System.Environment.NewLine);
+
+            foreach (KeyValuePair<string, string> field in fields)
+            {
+                
+                string isFieldNull;
+
+                if (field.Value == "")
+                {
+                    isFieldNull = "Data not available";
+                }
+                else
+                {
+                    isFieldNull = field.Value;
+                }
+
+                //Console.WriteLine(field.Key + ": " + isFieldNull);
+                combinedJobList += field.Key + ": " + isFieldNull + System.Environment.NewLine;
+            }
+
+            return combinedJobList;
         }
     }
 }
