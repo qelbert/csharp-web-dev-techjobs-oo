@@ -43,7 +43,7 @@ namespace TechJobsTests
         [TestMethod]
         public void JobTestsForRequiredEmptyLines()
         {
-            Assert.IsTrue(test1.ToString().Contains("" + "ID"));
+            Assert.IsTrue(test1.ToString().Contains(System.Environment.NewLine + "ID"));
             Assert.IsTrue(test1.ToString().Contains("coreCompentency1" + System.Environment.NewLine));
         }
 

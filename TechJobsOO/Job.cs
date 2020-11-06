@@ -50,7 +50,7 @@ namespace TechJobsOO
         public override string ToString()
         {
             string stringId = Id.ToString();
-            string combinedJobList = "";
+            string combinedJobListing = "";
 
             Dictionary<string, string> fields = new Dictionary<string, string>
             {
@@ -61,8 +61,6 @@ namespace TechJobsOO
                 {"Position Type", JobType.ToString()},
                 {"Core Competency", JobCoreCompetency.ToString()},
             };
-
-            Console.WriteLine(System.Environment.NewLine);
 
             foreach (KeyValuePair<string, string> field in fields)
             {
@@ -78,11 +76,10 @@ namespace TechJobsOO
                     isFieldNull = field.Value;
                 }
 
-                //Console.WriteLine(field.Key + ": " + isFieldNull);
-                combinedJobList += field.Key + ": " + isFieldNull + System.Environment.NewLine;
+                combinedJobListing += field.Key + ": " + isFieldNull + System.Environment.NewLine;
             }
 
-            return combinedJobList;
+            return System.Environment.NewLine + combinedJobListing;
         }
     }
 }
